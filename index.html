@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Library &amp; Bookmark Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap masthead__row">
+      <div>
+        <h1>Digital Library &amp; Bookmark Manager</h1>
+        <p class="masthead__sub">Every book in the Drive folder, on one shelf. Bookmark a book and keep your place with its last page.</p>
+      </div>
+      <a class="btn btn--light" href="https://drive.google.com/drive/folders/1dCnrrZWOFJfIq6P0XO_zN_5sAt9hGo3u?usp=drive_link" target="_blank" rel="noopener">Books folder on Google Drive</a>
+    </div>
+    <div class="wrap stats" id="stats" aria-label="Library summary"></div>
+  </header>
+
+  <main class="wrap layout">
+
+    <aside class="panel" aria-labelledby="shelvesTitle">
+      <h2 id="shelvesTitle">Shelves</h2>
+      <nav id="shelves" aria-label="Shelves and folders"></nav>
+      <div class="sync">
+        <p id="syncInfo"></p>
+        <a class="link" href="https://drive.google.com/drive/folders/1dCnrrZWOFJfIq6P0XO_zN_5sAt9hGo3u?usp=drive_link" target="_blank" rel="noopener">Open the Drive folder</a>
+      </div>
+    </aside>
+
+    <section class="library" aria-label="Books">
+      <div class="toolbar">
+        <div class="field field--grow">
+          <label class="sr-only" for="search">Search books</label>
+          <input id="search" type="search" placeholder="Search by title or folder" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="sr-only" for="viewFilter">Show</label>
+          <select id="viewFilter">
+            <option value="All">All books</option>
+            <option value="Bookmarked">Bookmarked</option>
+            <option value="To Read">To Read</option>
+            <option value="Reading">Reading</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="results" id="results"></p>
+      <ul class="list" id="list"></ul>
+      <p class="empty" id="empty" hidden></p>
+    </section>
+
+  </main>
+
+  <footer class="wrap footer">
+    <p>Your bookmarks and last pages are saved in this browser only.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="books.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
